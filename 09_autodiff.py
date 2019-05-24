@@ -14,7 +14,7 @@ from sklearn.preprocessing import StandardScaler
 n_epochs = 10000
 learning_rate = 0.01
 
-housing = fetch_california_housing()
+housing = fetch_california_housing(data_home="d://datas/scikit_learn_data", download_if_missing=True)
 m, n = housing.data.shape
 housing_data_plus_bias = np.c_[np.ones((m, 1)), housing.data]
 # 可以使用TensorFlow或者Numpy或者sklearn的StandardScaler去进行归一化
@@ -48,6 +48,18 @@ with tf.Session() as sess:
     best_theta = theta.eval()
     print(best_theta)
 
+'''
+Epoch 9900 MSE =  4.8032537
+[[-0.6139438 ]
+ [ 0.82960564]
+ [ 0.11874887]
+ [-0.2655034 ]
+ [ 0.3056771 ]
+ [-0.00450381]
+ [-0.0393257 ]
+ [-0.8999174 ]
+ [-0.8705713 ]]
+'''
 
 
 
