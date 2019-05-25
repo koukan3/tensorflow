@@ -8,7 +8,7 @@ y = x + 5
 z = x * 3
 
 with tf.Session() as sess:
-    # sess.run(w.initializer)
+    sess.run(w.initializer)
     print(sess.run(y))
     # 这里为了去计算z，又重新计算了x和w，除了Variable值，tf是不会缓存其他比如contant等的值的
     # 一个Variable的生命周期是当它的initializer运行的时候开始，到会话session close的时候结束
