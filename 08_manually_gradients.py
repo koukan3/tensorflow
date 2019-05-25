@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 n_epochs = 36500
 learning_rate = 0.001
 
-housing = fetch_california_housing(data_home="C:/Users/28542/scikit_learn_data", download_if_missing=True)
+housing = fetch_california_housing(data_home="E:/MLdata/scikit_learn_data", download_if_missing=True)
 m, n = housing.data.shape
 print(m, n)
 housing_data_plus_bias = np.c_[np.ones((m, 1)), housing.data]
@@ -16,7 +16,7 @@ housing_data_plus_bias = np.c_[np.ones((m, 1)), housing.data]
 # 你如何构建你的训练集，你训练除了的模型，就具备什么样的功能！
 scaler = StandardScaler().fit(housing_data_plus_bias)
 scaled_housing_data_plus_bias = scaler.transform(housing_data_plus_bias)
-
+print("标准归一化之后的X： ",scaled_housing_data_plus_bias)
 X = tf.constant(scaled_housing_data_plus_bias, dtype=tf.float32, name='X')
 y = tf.constant(housing.target.reshape(-1, 1), dtype=tf.float32, name='y')
 
